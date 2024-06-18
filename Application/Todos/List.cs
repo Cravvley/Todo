@@ -10,7 +10,6 @@ namespace Application.Todos
         public class Query:IRequest<List<TodoItem>>{}
         public class Handler : IRequestHandler<Query, List<TodoItem>>
         {
-
             private readonly DataContext _context;
             public Handler(DataContext context)
             {

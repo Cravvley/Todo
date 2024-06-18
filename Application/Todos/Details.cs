@@ -6,7 +6,8 @@ namespace Application.Todos
 {
      public class Details
     {
-        public class Query:IRequest<TodoItem>{
+        public class Query:IRequest<TodoItem>
+        {
             public Guid Id {get;set;}
         }
         public class Handler : IRequestHandler<Query, TodoItem>
