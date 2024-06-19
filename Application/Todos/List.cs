@@ -11,14 +11,12 @@ namespace Application.Todos
         public class Handler : IRequestHandler<Query, List<TodoItem>>
         {
             private readonly DataContext _context;
+  
             public Handler(DataContext context)
             {
                 _context = context;
             }
-            public async Task<List<TodoItem>> Handle(Query request, CancellationToken cancellationToken)
-            {
-                return await _context.TodoItems.ToListAsync();
-            }
+            public async Task<List<TodoItem>> Handle(Query request, CancellationToken cancellationToken) => await _context.TodoItems.ToListAsync();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace API.Controllers
     {  
         
         [HttpGet]
-        public async Task<ActionResult<List<TodoItem>>> GetTodos() => await Mediator.Send(new List.Query());
+        public async Task<ActionResult<List<TodoItem>>> GetTodos(CancellationToken ct) => await Mediator.Send(new List.Query());
 
         [HttpGet("{id}")]
         public async Task<ActionResult<TodoItem>> GetTodo(Guid id)=> await Mediator.Send(new Details.Query{Id=id});

@@ -18,10 +18,7 @@ namespace Application.Todos
                 _context = context;
                 
             }
-            public async Task<TodoItem> Handle(Query request, CancellationToken cancellationToken)
-            {
-                return await _context.TodoItems.FindAsync(request.Id);
-            }
+            public async Task<TodoItem> Handle(Query request, CancellationToken cancellationToken) => await _context.TodoItems.FindAsync(request.Id);
         }
     }
 }
