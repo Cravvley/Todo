@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { List } from "semantic-ui-react";
+import { Container, List } from "semantic-ui-react";
 import { TodoItem } from "../models/todoItem";
+import NavBar from "./NavBar";
 
 function App() {
   const [todos, setTodos] = useState<TodoItem[]>([]);
@@ -13,11 +14,14 @@ function App() {
   });
   return (
     <>
-      <List>
-        {todos.map((todo: TodoItem) => (
-          <List.Item key={todo.id}>{todo.title}</List.Item>
-        ))}
-      </List>
+      <NavBar />
+      <Container>
+        <List className="m--lg">
+          {todos.map((todo: TodoItem) => (
+            <List.Item key={todo.id}>{todo.title}</List.Item>
+          ))}
+        </List>
+      </Container>
     </>
   );
 }
